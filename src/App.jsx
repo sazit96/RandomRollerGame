@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Die from './components/Die';
 import { func } from 'prop-types';
-
+//hello 
 function App() {
   const [dice, setDice] = useState(generateNewDice())
 
