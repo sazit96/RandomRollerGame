@@ -1,144 +1,89 @@
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-*::-webkit-scrollbar {
-  display: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-}
-
-.main {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #2a7393, #2e6375, #418dae);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
+}
+
+main {
+  text-align: center;
+  background: linear-gradient(135deg, #2d91bc, #269ec6, #0e5c7d);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h1.title {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.instructions {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: white;
 }
 
 .dice-container {
   display: grid;
-  grid-template: auto auto / repeat(5, 1fr);
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  max-width: 800px;
-  background: rgba(15, 32, 39, 0.2);
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.die {
-  width: 110px;
-  height: 110px;
-  background: linear-gradient(145deg, #2c3e50, #34495e);
-  border: 2px solid rgba(15, 32, 39, 0.1);
-  border-radius: 15px;
+.die-face {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 
-    0 15px 25px rgba(0, 0, 0, 0.2),
-    inset 0 -5px 15px rgba(15, 32, 39, 0.1);
-  transform-style: preserve-3d;
-  transition: all 0.3s ease;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
-.die:hover {
-  transform: scale(1.05) rotateX(10deg) rotateY(10deg);
-  box-shadow: 
-    0 20px 35px rgba(0, 0, 0, 0.3),
-    inset 0 -5px 15px rgba(15, 32, 39, 0.2);
-}
-
-.die:active {
-  transform: scale(0.95);
-  box-shadow: 
-    0 5px 10px rgba(0, 0, 0, 0.2),
-    inset 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.die-value {
-  font-size: 52px;
+.die-num {
+  font-size: 2rem;
   font-weight: bold;
-  color: transparent;
-  background: linear-gradient(45deg, #3498db, #2980b9);
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 2;
+  color: #333;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+.die-face:hover {
+  background-color: #f5f5f5;
 }
 
-.die:hover {
-  animation: pulse 1.5s infinite;
-}
-
-.die::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at center, 
-    rgba(15, 32, 39, 0.2) 0%, 
-    rgba(15, 32, 39, 0) 70%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.die:hover::before {
-  opacity: 1;
-}
-
-button.roll-dice {
+button.rolldice {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
   cursor: pointer;
-  color: #fff;
-  background: linear-gradient(145deg, #2c3e50, #34495e);
-  border: 2px solid rgba(15, 32, 39, 0.1);
-  border-radius: 10px;
-  box-shadow: 
-    0 15px 25px rgba(0, 0, 0, 0.2),
-    inset 0 -5px 15px rgba(15, 32, 39, 0.1);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-button.roll-dice:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 20px 35px rgba(0, 0, 0, 0.3),
-    inset 0 -5px 15px rgba(15, 32, 39, 0.2);
-  background: linear-gradient(145deg, #2c3e50, #3b5998);
+button.rolldice:hover {
+  background-color: #218838;
 }
 
-button.roll-dice:active {
-  transform: scale(0.95);
-  box-shadow: 
-    0 5px 10px rgba(0, 0, 0, 0.2),
-    inset 0 3px 6px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(145deg, #2c3e50, #2f4f7f);
+button.rolldice:active {
+  background-color: #1e7e34;
 }
